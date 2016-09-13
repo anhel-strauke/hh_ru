@@ -1,0 +1,49 @@
+Выдержки из документации API HH.ru
+
+Раздел «Поиск вакансий» (https://github.com/hhru/api/blob/master/docs/vacancies.md)
+
+Адрес: https://api.hh.ru/vacancies?критерий&критерий...
+
+Критерии поиска:
+    specialization=1.221    — Специализация: Программирование, Разработка (https://api.hh.ru/specializations)
+    industry=7.540          — Индустрия: Разработка программного обеспечения (https://api.hh.ru/industries)
+    industry=7.541          — Индустрия: Интернет-компания
+    area=4                  — Регион: Новосибирск (https://api.hh.ru/areas)
+    text=Python             — Ключевые слова
+    search_field=name       — В каких полях искать (https://github.com/hhru/api/blob/master/docs/dictionaries.md)
+    search_field=description
+    
+Формат выдачи результатов: JSON
+
+Пример:
+{
+  "per_page": 1,
+  "items": [
+    {
+      "salary": {       // Может отсутствовать
+        "to": null,     // Может быть null (None в Python)
+        "from": 30000,  // Может быть null (None в Python)
+        "currency": "RUR"
+      },
+      "name": "Секретарь",
+      ...
+      "employer": {
+        ...
+        "name": "HeadHunter",
+        ...
+      },
+      ...
+      "alternate_url": "http://hh.ru/vacancy/8331228",
+      ...
+      "snippet": {
+          "requirement": "Высшее образование. Опыт работы в качестве <highlighttext>секретаря</highlighttext>, офис-менеджера. Знание делопроизводства, документооборота. Коммуникативные навыки.",
+          "responsibility": "Документооборот (регистрация, отправка, контроль исполнения писем, ведение протоколов, отчетность). Распределение корреспонденции. Прием и распределение телефонных звонков."
+      },
+    }
+  ],
+  "page": 0,
+  "pages": 13,
+  "found": 13,
+  ...
+}
+
