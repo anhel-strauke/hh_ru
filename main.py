@@ -2,6 +2,8 @@ from bottle import default_app, route, view
 import requests
 import json
 
+# This is changes
+
 API_URL = 'https://api.hh.ru/vacancies'
 
 def make_salary(sal):
